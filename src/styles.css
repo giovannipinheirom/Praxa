@@ -1,0 +1,377 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system — marketplace B2B de serviços profissionais.
+ * Base branca, tinta profunda #2B2410.
+ * Único destaque/ação: azul. Tons neutros levemente azulados.
+ * Ícones informativos: grafite #4A4A52.
+ */
+
+
+@theme inline {
+  --font-display: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  /* Serifada de autoridade: só títulos de página e nome do prestador na credencial. */
+  --font-serif: "Spectral", ui-serif, Georgia, serif;
+  --radius-sm: calc(var(--radius) - 6px);
+  --radius-md: calc(var(--radius) - 4px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-grafite: var(--grafite);
+
+  --color-ink: var(--ink);
+  --color-ink-foreground: var(--ink-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --shadow-card: var(--shadow-card);
+  --shadow-elevated: var(--shadow-elevated);
+  --shadow-float: var(--shadow-float);
+  --shadow-glass: var(--shadow-glass);
+}
+
+:root {
+  --radius: 0.75rem;
+  --background: oklch(0.98 0.005 60); /* Papel #F6F6F2 aproximado */
+  --foreground: oklch(0.18 0.02 260);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.18 0.02 260);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.18 0.02 260);
+  --primary: oklch(0.75 0.16 155); /* Verde Stone Vibrante */
+  --primary-foreground: oklch(0.18 0.03 260);
+  --grafite: oklch(0.35 0.015 260);
+  --secondary: oklch(0.97 0.005 260);
+  --secondary-foreground: oklch(0.25 0.03 260);
+  --muted: oklch(0.94 0.01 260);
+  --muted-foreground: oklch(0.45 0.02 260);
+  --accent: oklch(0.96 0.01 260);
+  --accent-foreground: oklch(0.25 0.03 260);
+  --destructive: oklch(0.58 0.2 25);
+  --destructive-foreground: oklch(0.99 0.005 300);
+  --success: oklch(0.52 0.11 150); /* Verde-selo #1F6F5C aproximado */
+  --success-foreground: oklch(0.985 0.012 150);
+  --ink: oklch(0.18 0.03 260); /* Tinta #14213D */
+  --ink-foreground: oklch(0.99 0.01 260);
+  --border: oklch(0.9 0.01 260);
+  --input: oklch(0.9 0.01 260);
+  --ring: oklch(0.75 0.16 155);
+  --shadow-card: 0 1px 3px 0 rgb(20 33 61 / 0.05), 0 1px 2px -1px rgb(20 33 61 / 0.05);
+  --shadow-elevated: 0 10px 15px -3px rgb(20 33 61 / 0.08), 0 4px 6px -4px rgb(20 33 61 / 0.08);
+  --shadow-float: 0 20px 25px -5px rgb(20 33 61 / 0.1), 0 8px 10px -6px rgb(20 33 61 / 0.1);
+  --shadow-glass: inset 0 0 0 1px oklch(1 0 0 / 0.1), 0 8px 32px 0 oklch(20 33 61 / 0.08);
+}
+
+.dark {
+  --background: oklch(0.18 0.03 260);
+  --foreground: oklch(0.98 0.008 260);
+  --card: oklch(0.22 0.025 260);
+  --card-foreground: oklch(0.98 0.008 260);
+  --popover: oklch(0.22 0.025 260);
+  --popover-foreground: oklch(0.98 0.008 260);
+  --primary: oklch(0.75 0.16 155);
+  --primary-foreground: oklch(0.18 0.03 260);
+  --grafite: oklch(0.72 0.015 260);
+  --secondary: oklch(0.27 0.03 260);
+  --secondary-foreground: oklch(0.98 0.008 260);
+  --muted: oklch(0.27 0.03 260);
+  --muted-foreground: oklch(0.72 0.022 260);
+  --accent: oklch(0.32 0.045 260);
+  --accent-foreground: oklch(0.86 0.12 260);
+  --destructive: oklch(0.65 0.19 25);
+  --destructive-foreground: oklch(0.17 0.02 260);
+  --success: oklch(0.52 0.11 150);
+  --success-foreground: oklch(0.17 0.02 260);
+  --ink: oklch(0.14 0.018 260);
+  --ink-foreground: oklch(0.98 0.008 260);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 16%);
+  --ring: oklch(0.75 0.16 155);
+}
+
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    font-size: clamp(14px, 0.4vw + 12px, 18px);
+  }
+
+  body {
+    overflow-x: clip;
+    max-width: 100vw;
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.03em;
+    font-weight: 700;
+    line-height: 1.1;
+  }
+
+  h1 { font-size: clamp(2.5rem, 5vw + 1rem, 5rem); }
+  h2 { font-size: clamp(2rem, 4vw + 0.5rem, 3.5rem); }
+  h3 { font-size: clamp(1.5rem, 3vw + 0.25rem, 2.5rem); }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@utility surface-panel {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-2xl);
+}
+
+@utility grid-backdrop {
+  background-image:
+    linear-gradient(to right, color-mix(in oklab, var(--color-border) 40%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--color-border) 40%, transparent) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+@utility surface-float {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-float);
+}
+
+@utility soft-canvas {
+  background: 
+    radial-gradient(at 0% 0%, color-mix(in oklab, var(--color-primary) 5%, transparent) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, color-mix(in oklab, var(--color-primary) 3%, transparent) 0px, transparent 50%);
+}
+
+/* Verde — cor de selo e autoridade. */
+@theme {
+  --color-gold: oklch(0.75 0.16 155);
+  --color-gold-soft: oklch(0.95 0.05 155);
+  --color-gold-ink: oklch(0.35 0.1 155);
+  --color-hairline: oklch(0.9 0.01 260);
+}
+
+
+/* Badge neutro com borda fina azul — substitui pílulas coloridas sólidas. */
+@utility chip-credencial {
+  background-color: transparent;
+  color: var(--color-ink);
+  border: 1px solid var(--color-gold);
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.125rem 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+
+/*
+ * Carimbo (stamp-in): vocabulário visual de "isso agora é oficial/verificado".
+ * Restrito a: avaliação verificada, perfil ao ar, assinatura confirmada,
+ * destaque pago ativado. Nunca em confirmações rotineiras.
+ */
+@keyframes stamp-in {
+  0% {
+    opacity: 0;
+    transform: scale(1.9) rotate(-9deg);
+    filter: blur(3px);
+  }
+  55% {
+    opacity: 1;
+    transform: scale(0.92) rotate(-2deg);
+    filter: blur(0);
+  }
+  75% {
+    transform: scale(1.04) rotate(1deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@utility animate-stamp-in {
+  animation: stamp-in 0.55s cubic-bezier(0.2, 1.3, 0.4, 1) both;
+}
+
+@utility selo-gold {
+  background: linear-gradient(
+    180deg,
+    color-mix(in oklab, var(--color-gold) 88%, white),
+    var(--color-gold)
+  );
+  color: oklch(0.99 0.005 250);
+  border: 1px solid color-mix(in oklab, var(--color-gold-ink) 45%, transparent);
+  box-shadow:
+    inset 0 1px 0 color-mix(in oklab, white 40%, transparent),
+    0 10px 24px -12px color-mix(in oklab, var(--color-gold-ink) 60%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-stamp-in {
+    animation: none;
+  }
+}
+
+/* Papel do documento — usado no preview de propostas/contratos. */
+@theme {
+  --color-papel: oklch(0.985 0.003 250);
+  --color-papel-tinta: oklch(0.26 0.02 260);
+}
+
+@utility folha-papel {
+  background-color: var(--color-papel);
+  color: var(--color-papel-tinta);
+  box-shadow:
+    0 1px 0 color-mix(in oklab, black 6%, transparent),
+    0 24px 60px -30px color-mix(in oklab, black 45%, transparent);
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #documento-proposta,
+  #documento-proposta * {
+    visibility: visible;
+  }
+  #documento-proposta {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    width: 100%;
+    box-shadow: none;
+  }
+}
+
+/* Scroll-reveal discreto — fade + leve slide-up, nunca exagerado. */
+.revelar {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 0.6s cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.revelar-visivel {
+  opacity: 1;
+  transform: none;
+}
+
+/* Sequência de carregamento orquestrada do hero. */
+@keyframes entrada-hero {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@utility hero-entra {
+  animation: entrada-hero 0.65s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+/* Acento dourado na borda em hover — sem trocar o fundo do card. */
+@utility hover-acento-gold {
+  transition:
+    box-shadow 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    border-color: color-mix(in oklab, var(--color-gold) 70%, transparent);
+    box-shadow: var(--shadow-elevated);
+  }
+
+  &:focus-visible {
+    border-color: color-mix(in oklab, var(--color-gold) 70%, transparent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .revelar {
+    opacity: 1;
+    transform: none;
+    transition: opacity 0.2s linear;
+  }
+
+  .hero-entra {
+    animation: none;
+  }
+
+  .hover-acento-gold:hover {
+    transform: none;
+  }
+}
+
+/* Barra do overlay de transição entre páginas. */
+@keyframes carregando-barra {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(300%); }
+}
+
+/* Trilho de progresso do loop da demo do produto (abaixo da hero). */
+@keyframes demo-progresso {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+.demo-progresso {
+  animation: demo-progresso linear forwards;
+}
+
+@keyframes bounce-subtle {
+  0%, 100% { transform: translateY(0) rotate(-4deg); }
+  50% { transform: translateY(-8px) rotate(-4deg); }
+}
+
+@utility animate-bounce-subtle {
+  animation: bounce-subtle 4s ease-in-out infinite;
+}
